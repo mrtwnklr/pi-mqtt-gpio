@@ -1,0 +1,120 @@
+---
+
+mqtt:
+  host: test.mosquitto.org
+  port: 1883
+  user: ""
+  password: ""
+  topic_prefix: home/device
+
+gpio_modules:
+  - name: raspberrypi
+    module: raspberrypi
+
+digital_outputs:
+#  - name: ...
+#    pin: 14 #BCM
+#    initial: low  # This optional value controls the initial state of the pin before receipt of any messages from MQTT. Valid options are 'low' and 'high'.
+#    retain: yes # This option value controls if the message is retained. Default is no.
+#    inverted: yes  # This pin may control an open-collector output which is "on" when the output is "low".
+  - name: gpio0
+    module: raspberrypi
+    pin: 17
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio1
+    module: raspberrypi
+    pin: 18
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio2
+    module: raspberrypi
+    pin: 27
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio3
+    module: raspberrypi
+    pin: 22
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio4
+    module: raspberrypi
+    pin: 23
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio5
+    module: raspberrypi
+    pin: 24
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio6
+    module: raspberrypi
+    pin: 25
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio7
+    module: raspberrypi
+    pin: 4
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio21
+    module: raspberrypi
+    pin: 5
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio22
+    module: raspberrypi
+    pin: 6
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio23
+    module: raspberrypi
+    pin: 13
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio24
+    module: raspberrypi
+    pin: 19
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio25
+    module: raspberrypi
+    pin: 26
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio26
+    module: raspberrypi
+    pin: 12
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio27
+    module: raspberrypi
+    pin: 16
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio28
+    module: raspberrypi
+    pin: 20
+    on_payload: "ON"
+    off_payload: "OFF"
+
+  - name: gpio29
+    module: raspberrypi
+    pin: 21
+    on_payload: "ON"
+    off_payload: "OFF"
