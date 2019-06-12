@@ -1,0 +1,21 @@
+ARG ARCH=arm32v6
+ARG VERSION=3.6.8
+ARG VARIANT=-alpine
+from ${ARCH}/python:${VERSION}${VARIANT}
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+
+# RUN adduser -S -D -H mqttgpio
+# USER mqttgpio
+WORKDIR /mqttgpio
+COPY Pipfile* ./
+
+RUN pip install --no-cache-dir pipenv && \
+    apk add --no-cache --virtual .build-dependencies python3-dev build-base && \
+    pipenv install --three --deploy && \
+    apk del --purge .build-dependencies
+
+COPY pi_mqtt_gpio pi_mqtt_gpio
+
+CMD [ "pipenv", "run", "python", "-m", "pi_mqtt_gpio.server", "/config.yml" ]
