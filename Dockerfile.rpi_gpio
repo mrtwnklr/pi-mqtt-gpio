@@ -12,7 +12,7 @@ WORKDIR /mqttgpio
 COPY Pipfile* ./
 
 RUN pip install --no-cache-dir pipenv && \
-    apk add --no-cache --virtual .build-dependencies python3-dev build-base && \
+    apk add --no-cache --virtual .build-dependencies build-base && \
     pipenv install --three --deploy && \
     apk del --purge .build-dependencies
 
