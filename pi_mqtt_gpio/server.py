@@ -979,7 +979,7 @@ def hass_announce_digital_output(out_conf, topic_prefix, mqtt_config):
         "payload_off": out_conf["off_payload"],
         "device": {
             "manufacturer": "MQTT GPIO",
-            "identifiers": ["mqtt-gpio", device_id],
+            "identifiers": [device_id],
             "name": mqtt_config["discovery_name"],
         },
     }
@@ -1014,7 +1014,7 @@ def hass_announce_sensor_input(in_conf, topic_prefix, mqtt_config):
         "expire_after": 2 * int(in_conf.get("interval", "60")) + 5,
         "device": {
             "manufacturer": "MQTT GPIO",
-            "identifiers": ["mqtt-gpio", device_id],
+            "identifiers": [device_id],
             "name": mqtt_config["discovery_name"],
         },
     }
