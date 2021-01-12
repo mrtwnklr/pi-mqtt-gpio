@@ -19,6 +19,8 @@ class GPIO(GenericGPIO):
     def __init__(self, config):
         print("__init__(config=%r)" % config)
 
+        self.output_get = config["output_get"]
+
     def setup_pin(self, pin, direction, pullup, pin_config):
         print(
             "setup_pin(pin=%r, direction=%r, pullup=%r, pin_config=%r)"
@@ -35,6 +37,6 @@ class GPIO(GenericGPIO):
         print("set_pin(pin=%r, value=%r)" % (pin, value))
 
     def get_pin(self, pin):
-        if config["output_get"]:
+        if self.output_get:
             print("get_pin(pin=%r)" % pin)
         return False
