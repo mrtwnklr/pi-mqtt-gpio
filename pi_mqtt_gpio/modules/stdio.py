@@ -2,6 +2,14 @@ from __future__ import print_function
 
 from pi_mqtt_gpio.modules import GenericGPIO
 
+CONFIG_SCHEMA = {
+    "output_get": {
+        "type": "boolean",
+        "required": False,
+        "empty": False,
+        "default": True
+    }
+}
 
 class GPIO(GenericGPIO):
     """
@@ -27,5 +35,6 @@ class GPIO(GenericGPIO):
         print("set_pin(pin=%r, value=%r)" % (pin, value))
 
     def get_pin(self, pin):
-        print("get_pin(pin=%r)" % pin)
+        if config["output_get"]:
+            print("get_pin(pin=%r)" % pin)
         return False
