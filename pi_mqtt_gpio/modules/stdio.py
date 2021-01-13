@@ -3,7 +3,12 @@ from __future__ import print_function
 from pi_mqtt_gpio.modules import GenericGPIO
 
 CONFIG_SCHEMA = {
-    "output_get": {"type": "boolean", "required": False, "empty": False, "default": True}
+    "print_get_pin": {
+        "type": "boolean",
+        "required": False,
+        "empty": False,
+        "default": True,
+    }
 }
 
 
@@ -15,7 +20,7 @@ class GPIO(GenericGPIO):
     def __init__(self, config):
         print("__init__(config=%r)" % config)
 
-        self.output_get = config["output_get"]
+        self.print_get_pin = config["print_get_pin"]
 
     def setup_pin(self, pin, direction, pullup, pin_config):
         print(
@@ -33,6 +38,6 @@ class GPIO(GenericGPIO):
         print("set_pin(pin=%r, value=%r)" % (pin, value))
 
     def get_pin(self, pin):
-        if self.output_get:
+        if self.print_get_pin:
             print("get_pin(pin=%r)" % pin)
         return False
