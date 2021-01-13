@@ -3,13 +3,9 @@ from __future__ import print_function
 from pi_mqtt_gpio.modules import GenericGPIO
 
 CONFIG_SCHEMA = {
-    "output_get": {
-        "type": "boolean",
-        "required": False,
-        "empty": False,
-        "default": True
-    }
+    "output_get": {"type": "boolean", "required": False, "empty": False, "default": True}
 }
+
 
 class GPIO(GenericGPIO):
     """
